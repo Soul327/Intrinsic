@@ -1,0 +1,38 @@
+name: Intrinsic
+main: main.Main
+version: 2.0
+api-version: 1.13
+commands: 
+  hello:
+    description: Blank description.
+    usage: /<command>
+  openinv:
+    description: Opens player's inventory
+    usage: /<command> <playerName>
+  openender:
+    description: Opens player's ender chest
+    usage: /<command> <playerName>
+  getdog:
+    description: Shows all dogs a player owns
+    usage: /<command>
+  locateplayer:
+    description: Shows the location of a player
+    usage: /<command> <playerName>
+  pointCompass:
+    description: Changes the direction that the compass points
+    usage: /<command> <Location>
+  setName:
+    description: Changes your name
+    usage: /<command> <name>
+  getName:
+    description: Returns the true name of a player
+    usage: /<command> <name>
+  deposit:
+    description: Returns the true name of a player
+    usage: /<command>
+  withdraw:
+    description: Returns the true name of a player
+    usage: /<command>
+  balance:
+    description: Returns the true name of a player
+    usage: /<command>
