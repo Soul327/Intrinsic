@@ -18,15 +18,6 @@ public class MOTD {
 		event.setJoinMessage(player.getCustomName() + ChatColor.YELLOW + " has joined the game");
 		if(event.getPlayer().getWorld().isGameRule("doPatrolSpawning")) event.getPlayer().sendMessage("Pillager patrols are enabled"); else event.getPlayer().sendMessage("Pillager patrols are disabled");
 		player.sendMessage("The difficulty is "+world.getDifficulty());
-		player.sendMessage("Servers are expensive, help by donating @https://paypal.me/Soul327");
-		sendMessage(player, "Servers are expensive, help by donating", "https://paypal.me/Soul327");
 		
 	}
-	public void sendMessage(Player player, String message, String url) {
-		Bukkit.getServer().dispatchCommand(
-				Bukkit.getConsoleSender(),
-				"/tellraw " + player.getName() +
-				" {text:\"" + message + "\",clickEvent:{action:open_url,value:\"" +
-						url + "\"}}");
-}
 }

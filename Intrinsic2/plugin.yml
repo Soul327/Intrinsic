@@ -36,3 +36,6 @@ commands:
   balance:
     description: Returns the true name of a player
     usage: /<command>
+  autotrash:
+    description: Returns the true name of a player
+    usage: /<command>

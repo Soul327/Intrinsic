@@ -11,6 +11,8 @@ import org.bukkit.inventory.ItemStack;
 
 public class Flower implements Listener {
 	
+	/* Allows flowers to be reproduced by a player right clicking on any flower to produce more */
+	
 	Material[] flowers = new Material[12];
 	
 	public Flower() {

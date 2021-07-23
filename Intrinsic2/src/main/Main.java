@@ -8,10 +8,15 @@ import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.EnderDragon;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
+import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -19,22 +24,27 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
+//import Depreciated.DogTotem;
+
 public final class Main extends JavaPlugin implements Listener{
 	
 	public static ArrayList<PlayerSave> saves = new ArrayList<PlayerSave>();
 	Chat chat;
 	MOTD motd = new MOTD();
 	CustomRecipies customRecipies;
+	Totem totem = new Totem(this);
+	AutoTrash autoTrash = new AutoTrash();
 	
 	@Override
 	public void onEnable() {
 		getLogger().info("onEnable has been invoked!");
 		config();
-		new AFK(this);
+//		new AFK(this);
 		saves = new ArrayList<PlayerSave>();
 		Bukkit.getPluginManager().registerEvents(this, this);
 		//Bukkit.getPluginManager().registerEvents(new CustomComposter(), this);
 		Bukkit.getPluginManager().registerEvents(new Flower(), this);
+		Bukkit.getPluginManager().registerEvents(autoTrash, this);
 		if(getConfig().getBoolean("Compass.enable")) Bukkit.getPluginManager().registerEvents(new Compass(), this);
 		if(getConfig().getBoolean("CustomChat.enable")) {
 			chat = new Chat();
@@ -43,9 +53,8 @@ public final class Main extends JavaPlugin implements Listener{
 		if(getConfig().getBoolean("CustomTrades.enable")) Bukkit.getPluginManager().registerEvents(new CustomTrades(), this);
 		
 		Bukkit.getPluginManager().registerEvents(new Repair(),this);
-		
-		Bukkit.getPluginManager().registerEvents(new DogTotem(),this);
-		Bukkit.getPluginManager().registerEvents(new DiamondBank(), this);
+		totem.load();
+		Bukkit.getPluginManager().registerEvents(totem,this);
 		
 		getLogger().info("Plugin enabled");
 		for(Player p : Bukkit.getOnlinePlayers()){
@@ -59,6 +68,7 @@ public final class Main extends JavaPlugin implements Listener{
 	@Override
 	public void onDisable() {
 		getLogger().info("onDisable has been invoked!");
+		totem.save();
 	}
 	
 	public static PlayerSave getSave(Player player) {
@@ -113,6 +123,17 @@ public final class Main extends JavaPlugin implements Listener{
 		Player player = event.getEntity();
 		Bukkit.getServer().broadcastMessage(player.getDisplayName()+" has died at X:"+player.getLocation().getBlockX()+" Y:"+player.getLocation().getBlockY()+" Z:"+player.getLocation().getBlockZ());
 	}
+
+	@EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
+	public void onEntityDeath(EntityDeathEvent event) {
+		Entity entity = event.getEntity();
+		if (!(entity instanceof EnderDragon)) return;
+		if (event.getDroppedExp() == 1) return;
+		event.getDrops().add( new ItemStack(Material.DRAGON_EGG, 1) );
+		event.getDrops().add( new ItemStack(Material.DRAGON_HEAD, 1) );
+		event.getDrops().add( new ItemStack(Material.ELYTRA, 1) );
+	}
+	
 	
 	@EventHandler
 	public void onPlayerClicks(PlayerInteractEvent event) {
@@ -155,7 +176,8 @@ public final class Main extends JavaPlugin implements Listener{
 				return true;
 		}
 		
-		if( new DiamondBank().onCommand(sender, cmd, label, args) ) return true;
+		autoTrash.onCommand(sender, cmd, label, args);
+//		if( new DiamondBank().onCommand(sender, cmd, label, args) ) return true;
 		return false;
 	}
 }

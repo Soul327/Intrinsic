@@ -49,8 +49,8 @@ public class CustomTrades implements Listener{
 				text = "The horse tack trader has arrived!";
 				break;
 			default:
-				normalTrades(villager);
-				text = "The wandering trader has arrived!";
+//				normalTrades(villager);
+				text = "The wandering trader has arrived at "+villager.getLocation().getBlockX()+","+villager.getLocation().getBlockY()+"!";
 				break;
 		}
 		Bukkit.getServer().broadcastMessage(ChatColor.BLUE + text);
@@ -156,6 +156,18 @@ public class CustomTrades implements Listener{
 		recipes.add( createRecipe( new ItemStack(Material.EMERALD, 1), null, new ItemStack(Material.WHEAT,10), 5 ));
 		recipes.add( createRecipe( new ItemStack(Material.EMERALD, 10), null, new ItemStack(Material.GOLDEN_CARROT,4), 5 ));
 		recipes.add( createRecipe( new ItemStack(Material.EMERALD, 40), null, new ItemStack(Material.NAME_TAG,1), 5 ));
+		villager.setRecipes(recipes);
+	}
+	//Miner
+	//Bee keeper
+	public void beeKeeper(WanderingTrader villager) {
+		List<MerchantRecipe> recipes = new ArrayList();
+		recipes.add( createRecipe( new ItemStack(Material.EMERALD,10), null, new ItemStack(Material.BEE_NEST,1), 5 ));
+		recipes.add( createRecipe( new ItemStack(Material.EMERALD,10), null, new ItemStack(Material.BEEHIVE,1), 5 ));
+		recipes.add( createRecipe( new ItemStack(Material.EMERALD,10), null, new ItemStack(Material.HONEY_BLOCK,1), 5 ));
+		recipes.add( createRecipe( new ItemStack(Material.EMERALD,10), null, new ItemStack(Material.HONEY_BOTTLE,1), 5 ));
+		recipes.add( createRecipe( new ItemStack(Material.EMERALD,10), null, new ItemStack(Material.HONEYCOMB,1), 5 ));
+		recipes.add( createRecipe( new ItemStack(Material.EMERALD,10), null, new ItemStack(Material.HONEYCOMB_BLOCK,1), 5 ));
 		villager.setRecipes(recipes);
 	}
 	public void setColorTrades(WanderingTrader villager) {

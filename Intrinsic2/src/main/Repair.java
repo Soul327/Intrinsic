@@ -12,6 +12,7 @@ import org.bukkit.inventory.meta.Damageable;
 import org.bukkit.inventory.meta.ItemMeta;
 
 public class Repair implements Listener{
+	/* Allows the player to hold shift and right click to repair a tool using their exp */
 	@EventHandler
 	public void onPlayerClicks(PlayerInteractEvent event) {
 		Player player = event.getPlayer();

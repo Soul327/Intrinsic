@@ -1,5 +1,8 @@
 package main;
 
+import java.util.ArrayList;
+
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
@@ -9,6 +12,8 @@ public class PlayerSave {
 	public double bankAmount = 0;
 	public Player player;
 	private Plugin plugin = Main.getPlugin(Main.class);
+	
+	ArrayList<Material> autoTrashList = new ArrayList<Material>();
 	
 	//AFK Vars
 	public boolean afk = false;

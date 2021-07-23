@@ -41,22 +41,21 @@ public class CustomRecipies {
 			wools[15] = Material.BLACK_WOOL;
 			
 			beds[ 0] = Material.WHITE_BED;
-			beds[ 0] = Material.ORANGE_BED;
-			beds[ 0] = Material.BLACK_BED;
-			beds[ 0] = Material.BLACK_BED;
-			beds[ 0] = Material.BLACK_BED;
-			beds[ 0] = Material.BLACK_BED;
-			beds[ 0] = Material.BLACK_BED;
-			beds[ 0] = Material.BLACK_BED;
-			beds[ 0] = Material.BLACK_BED;
-			beds[ 0] = Material.BLACK_BED;
-			beds[ 0] = Material.BLACK_BED;
-			beds[ 0] = Material.BLACK_BED;
-			beds[ 0] = Material.BLACK_BED;
-			beds[ 0] = Material.BLACK_BED;
-			beds[ 0] = Material.BLACK_BED;
-			beds[ 0] = Material.BLACK_BED;
-			beds[ 0] = Material.BLACK_BED;
+			beds[ 1] = Material.ORANGE_BED;
+			beds[ 2] = Material.MAGENTA_BED;
+			beds[ 3] = Material.BLACK_BED;
+			beds[ 4] = Material.BLACK_BED;
+			beds[ 5] = Material.BLACK_BED;
+			beds[ 6] = Material.BLACK_BED;
+			beds[ 7] = Material.BLACK_BED;
+			beds[ 8] = Material.BLACK_BED;
+			beds[ 9] = Material.BLACK_BED;
+			beds[10] = Material.BLACK_BED;
+			beds[11] = Material.BLACK_BED;
+			beds[12] = Material.BLACK_BED;
+			beds[13] = Material.BLACK_BED;
+			beds[14] = Material.BLACK_BED;
+			beds[15] = Material.BLACK_BED;
 			
 			flowers[ 0] = Material.DANDELION;
 			flowers[ 1] = Material.POPPY;
@@ -124,6 +123,12 @@ public class CustomRecipies {
 		shapedRecipe.setIngredient('E', Material.EMERALD);
 		shapedRecipe.setIngredient('S', Material.END_STONE);
 		server.addRecipe(shapedRecipe);
+		
+		shapelessRecipe = new ShapelessRecipe(
+				new NamespacedKey(Main.getPlugin(Main.class), "CoalToBlackDye"),
+				new ItemStack(Material.BLACK_DYE, 4) );
+		shapelessRecipe.addIngredient( Material.COAL );
+		server.addRecipe(shapelessRecipe);
 		
 		delArrays();
 		Bukkit.broadcastMessage("ADDED RECIPIES");
