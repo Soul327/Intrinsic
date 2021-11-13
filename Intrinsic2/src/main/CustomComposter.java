@@ -2,10 +2,7 @@ package main;
 
 import java.util.ArrayList;
 
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
-import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -64,8 +61,7 @@ public class CustomComposter implements Listener {
 						if(Math.random()<recipes.get(r).chance)
 							block.getWorld().dropItem(Util.getCenter(block.getLocation()), new ItemStack(recipes.get(r).output));
 						if(player.getGameMode() != GameMode.CREATIVE) {
-							ItemStack inv = player.getInventory().getItem( player.getInventory().getHeldItemSlot() );
-							inv.setAmount(inv.getAmount()-1);
+							item.setAmount(item.getAmount()-1);
 							Material mat = block.getType();
 							mat.createBlockData();
 						}

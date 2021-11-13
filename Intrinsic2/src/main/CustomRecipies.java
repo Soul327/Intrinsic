@@ -4,7 +4,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.Server;
-import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.ShapelessRecipe;
@@ -13,6 +12,7 @@ public class CustomRecipies {
 	
 	Material[] wools = new Material[16];
 	Material[] beds = new Material[16];
+	Material[] banners = new Material[16];
 	Material[] flowers = new Material[12];
 	
 	public void delArrays() {
@@ -56,6 +56,23 @@ public class CustomRecipies {
 			beds[13] = Material.BLACK_BED;
 			beds[14] = Material.BLACK_BED;
 			beds[15] = Material.BLACK_BED;
+			
+			banners[ 0] = Material.WHITE_BANNER;
+			banners[ 1] = Material.ORANGE_BANNER;
+			banners[ 2] = Material.MAGENTA_BANNER;
+			banners[ 3] = Material.LIGHT_BLUE_BANNER;
+			banners[ 4] = Material.YELLOW_BANNER;
+			banners[ 5] = Material.LIME_BANNER;
+			banners[ 6] = Material.PINK_BANNER;
+			banners[ 7] = Material.GRAY_BANNER;
+			banners[ 8] = Material.LIGHT_GRAY_BANNER;
+			banners[ 9] = Material.CYAN_BANNER;
+			banners[10] = Material.PURPLE_BANNER;
+			banners[11] = Material.BLUE_BANNER;
+			banners[12] = Material.BROWN_BANNER;
+			banners[13] = Material.GREEN_BANNER;
+			banners[14] = Material.RED_BANNER;
+			banners[15] = Material.BLACK_BANNER;
 			
 			flowers[ 0] = Material.DANDELION;
 			flowers[ 1] = Material.POPPY;

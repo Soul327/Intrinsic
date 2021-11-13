@@ -8,11 +8,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
-import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.plugin.Plugin;
 
 public class Chat implements Listener {
-	private Plugin plugin = Main.getPlugin(Main.class);
 	
 	@EventHandler
 	public void chatFormat(AsyncPlayerChatEvent event){
