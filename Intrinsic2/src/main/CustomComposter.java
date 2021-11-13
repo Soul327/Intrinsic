@@ -64,8 +64,7 @@ public class CustomComposter implements Listener {
 						if(Math.random()<recipes.get(r).chance)
 							block.getWorld().dropItem(Util.getCenter(block.getLocation()), new ItemStack(recipes.get(r).output));
 						if(player.getGameMode() != GameMode.CREATIVE) {
-							ItemStack inv = player.getInventory().getItem( player.getInventory().getHeldItemSlot() );
-							inv.setAmount(inv.getAmount()-1);
+							item.setAmount(item.getAmount()-1);
 							Material mat = block.getType();
 							mat.createBlockData();
 						}

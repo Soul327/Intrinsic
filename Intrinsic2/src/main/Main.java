@@ -33,7 +33,7 @@ public final class Main extends JavaPlugin implements Listener{
 	MOTD motd = new MOTD();
 	CustomRecipies customRecipies;
 	Totem totem = new Totem(this);
-	AutoTrash autoTrash = new AutoTrash();
+//	AutoTrash autoTrash = new AutoTrash();
 	
 	@Override
 	public void onEnable() {
@@ -44,8 +44,9 @@ public final class Main extends JavaPlugin implements Listener{
 		Bukkit.getPluginManager().registerEvents(this, this);
 		//Bukkit.getPluginManager().registerEvents(new CustomComposter(), this);
 		Bukkit.getPluginManager().registerEvents(new Flower(), this);
-		Bukkit.getPluginManager().registerEvents(autoTrash, this);
+		Bukkit.getPluginManager().registerEvents(new AutoTrash(), this);
 		if(getConfig().getBoolean("Compass.enable")) Bukkit.getPluginManager().registerEvents(new Compass(), this);
+		Bukkit.getPluginManager().registerEvents(new RePlant(), this);
 		if(getConfig().getBoolean("CustomChat.enable")) {
 			chat = new Chat();
 			Bukkit.getPluginManager().registerEvents(chat, this);
@@ -176,7 +177,7 @@ public final class Main extends JavaPlugin implements Listener{
 				return true;
 		}
 		
-		autoTrash.onCommand(sender, cmd, label, args);
+//		autoTrash.onCommand(sender, cmd, label, args);
 //		if( new DiamondBank().onCommand(sender, cmd, label, args) ) return true;
 		return false;
 	}
