@@ -1,5 +1,7 @@
 package main;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Map;
 
 import org.bukkit.Material;
