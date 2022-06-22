@@ -22,7 +22,7 @@ public class CustomRecipies {
 	}
 	
 	public void setArrays() {
-	//Add items to list
+			//Add items to list
 			wools[ 0] = Material.WHITE_WOOL;
 			wools[ 1] = Material.ORANGE_WOOL;
 			wools[ 2] = Material.MAGENTA_WOOL;
@@ -39,22 +39,22 @@ public class CustomRecipies {
 			wools[13] = Material.GREEN_WOOL;
 			wools[14] = Material.RED_WOOL;
 			wools[15] = Material.BLACK_WOOL;
-			
+
 			beds[ 0] = Material.WHITE_BED;
 			beds[ 1] = Material.ORANGE_BED;
 			beds[ 2] = Material.MAGENTA_BED;
-			beds[ 3] = Material.BLACK_BED;
-			beds[ 4] = Material.BLACK_BED;
-			beds[ 5] = Material.BLACK_BED;
-			beds[ 6] = Material.BLACK_BED;
-			beds[ 7] = Material.BLACK_BED;
-			beds[ 8] = Material.BLACK_BED;
-			beds[ 9] = Material.BLACK_BED;
-			beds[10] = Material.BLACK_BED;
-			beds[11] = Material.BLACK_BED;
-			beds[12] = Material.BLACK_BED;
-			beds[13] = Material.BLACK_BED;
-			beds[14] = Material.BLACK_BED;
+			beds[ 3] = Material.LIGHT_BLUE_BED;
+			beds[ 4] = Material.YELLOW_BED;
+			beds[ 5] = Material.LIME_BED;
+			beds[ 6] = Material.PINK_BED;
+			beds[ 7] = Material.GRAY_BED;
+			beds[ 8] = Material.LIGHT_GRAY_BED;
+			beds[ 9] = Material.CYAN_BED;
+			beds[10] = Material.PURPLE_BED;
+			beds[11] = Material.BLUE_BED;
+			beds[12] = Material.BROWN_BED;
+			beds[13] = Material.GREEN_BED;
+			beds[14] = Material.RED_BED;
 			beds[15] = Material.BLACK_BED;
 			
 			banners[ 0] = Material.WHITE_BANNER;

@@ -39,7 +39,8 @@ public final class Main extends JavaPlugin implements Listener{
 		getLogger().info("onEnable has been invoked!");
 		config();
 //		new AFK(this);
-		saves = new ArrayList<PlayerSave>();
+
+		/* Register Events of other classes */
 		Bukkit.getPluginManager().registerEvents(this, this);
 		//Bukkit.getPluginManager().registerEvents(new CustomComposter(), this);
 		Bukkit.getPluginManager().registerEvents(new Flower(), this);
@@ -51,12 +52,12 @@ public final class Main extends JavaPlugin implements Listener{
 			Bukkit.getPluginManager().registerEvents(chat, this);
 		}
 		if(getConfig().getBoolean("CustomTrades.enable")) Bukkit.getPluginManager().registerEvents(new CustomTrades(), this);
-		
+
 		Bukkit.getPluginManager().registerEvents(new Repair(),this);
 		totem.load();
 		Bukkit.getPluginManager().registerEvents(totem,this);
-		
-		getLogger().info("Plugin enabled");
+
+		saves = new ArrayList<PlayerSave>();
 		for(Player p : Bukkit.getOnlinePlayers()){
 			PlayerSave save = new PlayerSave(p);
 			saves.add(save);
@@ -65,6 +66,7 @@ public final class Main extends JavaPlugin implements Listener{
 		customRecipies = new CustomRecipies();
 		customRecipies.init(Bukkit.getServer());
 	}
+	
 	@Override
 	public void onDisable() {
 		getLogger().info("onDisable has been invoked!");
